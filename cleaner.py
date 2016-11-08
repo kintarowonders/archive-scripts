@@ -24,3 +24,10 @@ def getDestruDirList():
                 print("Revision " + dateVar.strftime("%d-%m-%Y") + " to be deleted.")
 
     return deletionList 
+
+def doClean():
+    deletionList = getDestruDirList()
+    for path in deletionList:
+        print("Removing revision directory: " + path)
+        #os.system("rm -rf " + path)
+        print("rm -rf " + path)
