@@ -29,5 +29,4 @@ def doClean():
     deletionList = getDestruDirList()
     for path in deletionList:
         print("Removing revision directory: " + path)
-        #os.system("rm -rf " + path)
-        print("rm -rf " + path)
+        os.system("rm -rf " + path)
