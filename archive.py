@@ -12,6 +12,13 @@ excludePaths = config.excludePaths
 backupSystems = config.backupSystems
 
 # CONFIGURATION END
+=======
+
+# Occulus Omega btrfs revision based backup script.
+
+archivePath = config.archivePath
+excludePaths = config.excludePaths
+backupSystems = config.backupSystems
 
 def doArchive(sysName):
     today = datetime.date.today()
