@@ -10,3 +10,5 @@ This archive system also has a cleaner which deletes old backups. This frees
 space on the archive system. Tests in an anonymous production system reveal
 that this btrfs archive system running daily backups can use a lot of space
 over a short period of time.
+
+You just run all to do scripts with cron.
