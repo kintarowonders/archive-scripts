@@ -1,21 +1,15 @@
 import os
 import datetime
-
-# Occulus Omega btrfs revision based backup script.
+import config
 
 # CONFIGURATION START
 
 #exclude this path
-archivePath = "/archive/"
-excludePaths = []
-excludePaths.append("/sys")
-excludePaths.append("/proc")
+archivePath = config.archivePath
+excludePaths = config.excludePaths
 
 # these are the systems for the script to back up.
-backupSystems = []
-backupSystems.append("system1.host.com")
-backupSystems.append("system2.host.com")
-backupSystems.append("system3.host.com")
+backupSystems = config.backupSystems
 
 # CONFIGURATION END
 
