@@ -5,6 +5,8 @@ archivePath = "/archive/"
 excludePaths = []
 excludePaths.append("/sys")
 excludePaths.append("/proc")
+excludePaths.append("/proc")
+excludePaths.append("/run")
 
 global archivePath
 global excludePaths
