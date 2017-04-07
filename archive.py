@@ -11,9 +11,6 @@ excludePaths = config.excludePaths
 # these are the systems for the script to back up.
 backupSystems = config.backupSystems
 
-# CONFIGURATION END
-=======
-
 # Occulus Omega btrfs revision based backup script.
 
 archivePath = config.archivePath
