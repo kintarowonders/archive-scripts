@@ -42,7 +42,7 @@ def doBackup(sysName):
         cmd = cmd + "--exclude " + path + " "
 
     cmd = cmd + sysName + ":/ "
-    cmd = cmd + archivePath + "current/" + sysName + "/ "
+    cmd = cmd + archivePath + "current/" + sysName 
 
     print("mkdir -p " + archivePath + "current/" + sysName)
     print(cmd)
