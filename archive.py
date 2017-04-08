@@ -24,11 +24,10 @@ def doArchive(sysName):
     currentPath = archivePath + "current/" + sysName
     todayPath = archivePath + date + "/" + sysName
     
+    print("rm -rf " + todayPath)
+    os.system("rm -rf " + todayPath)
     cmd = "cp -rp --reflink " + currentPath + " " + todayPath
-
-    print("mkdir -p " + todayPath)
     print(cmd)
-    os.system("mkdir -p " + todayPath)
     os.system(cmd)
 
 def doBackup(sysName):
