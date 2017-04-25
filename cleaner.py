@@ -19,7 +19,7 @@ def getDestruDirList():
         skip = False
         if (not dateStr == "current"):
             dateVar = datetime.datetime.strptime(dateStr, "%Y-%m-%d")
-            if dateVar.date() < datetime.datetime.now().date() - datetime.timedelta(days=archiveForDays):
+            if dateVar.date() < datetime.datetime.now().date() - datetime.timedelta(days = archiveForDays - 1):
                 deletionList.append(archivePath + dateStr) #add full pathname to deletion list
                 print("Revision " + dateVar.strftime("%d-%m-%Y") + " to be deleted.")
 
