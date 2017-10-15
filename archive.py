@@ -28,7 +28,7 @@ def doArchive(sysName):
         os.mkdir(archivePath + date)
     except FileExistsError:
         print("Archive path already exists, possibly already done archival.")
-    cmd = "cp -rp --reflink " + currentPath + " " + todayPath
+    cmd = "cp -vrp --reflink " + currentPath + "* " + todayPath
     print(cmd)
     os.system(cmd)
 
