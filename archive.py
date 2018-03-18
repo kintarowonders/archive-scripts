@@ -45,8 +45,15 @@ def getPort(sysName):
     else:
         return 0
 
+def getAlias(sysName):
+    if sysName in sysAliases:
+        return sysAliases[sysName]
+    else:
+        return sysName
+
 def doBackup(sysName):
     port = getPort(sysName)
+    sysName = getAlias(sysName)
     
     if (port == 0):
         port = 22
@@ -63,12 +70,6 @@ def doBackup(sysName):
     print(cmd)
     #os.system("mkdir -p " + archivePath + "current/" + sysName)
     #os.system(cmd)
-
-def getAlias(sysName):
-    if sysName in sysAliases:
-        return sysAliases[sysName]
-    else:
-        return sysName
 
 def backupList():
     for system in backupSystems:
