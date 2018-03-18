@@ -16,6 +16,7 @@ backupSystems = config.backupSystems
 archivePath = config.archivePath
 excludePaths = config.excludePaths
 backupSystems = config.backupSystems
+sysAliases = config.sysAliases
 
 def doArchive(sysName):
     today = datetime.date.today()
@@ -32,9 +33,25 @@ def doArchive(sysName):
     print(cmd)
     os.system(cmd)
 
+def getPort(sysName):
+    a = sysName.split('%%')
+    
+    if (len(a) == 2):
+        try:
+            port = int(a[1])
+        except ValueError:
+            return 0
+        return int(a[1])
+    else:
+        return 0
+
 def doBackup(sysName):
-    # this uses rsync to get sysPath and store in the archive under sysName
-    cmd = "rsync -av "
+    port = getPort(sysName)
+    
+    if (port == 0):
+        port = 22
+
+    cmd = "rsync -av -e \"ssh -p " + str(port) + "\" "
 
     for path in excludePaths:
         cmd = cmd + "--exclude " + path + " "
@@ -44,8 +61,15 @@ def doBackup(sysName):
 
     print("mkdir -p " + archivePath + "current/" + sysName)
     print(cmd)
-    os.system("mkdir -p " + archivePath + "current/" + sysName)
-    os.system(cmd)
+    #os.system("mkdir -p " + archivePath + "current/" + sysName)
+    #os.system(cmd)
+
+def getAlias(sysName):
+    if sysName in sysAliases:
+        return sysAliases[sysName]
+    else:
+        return sysName
+
 def backupList():
     for system in backupSystems:
         doBackup(system)

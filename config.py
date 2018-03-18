@@ -20,3 +20,9 @@ backupSystems.append("system3.host.com")
 # how many days to archive for (integer)
 global archiveForDays
 archiveForDays = 14
+
+global sysAliases
+sysAliases = {
+                'localhost%%2022': 'localserver',
+                'localhost%%3022': 'otherserver'
+             }
